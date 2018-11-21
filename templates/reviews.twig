@@ -1,0 +1,44 @@
+{# Testimonial #}
+<style>
+.widget {
+	margin-bottom: 0px;
+}
+</style>
+
+<section id="testimonial" class="alizarin">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="center">
+					<section data-bolt-field="templatefields[section_1]">{{ record.templatefields.section_1 }}</section>
+
+					{# Get title from config #}
+					{% for name,value in title %}
+						<h2>{{ value }}</h2>
+					{% endfor %}
+
+					{# Get description from config #}
+					{% for name,values in description %}
+						<p>{{ values }}</p>
+					{% endfor %}
+
+				</div>
+				<div class="gap"></div>
+				<div class="row">
+
+					{# Get 4 random reviews #}
+					{% setcontent reviews = "reviews/random/4" %}
+					{% for reviews in reviews %}
+					<div class="col-md-6">
+						<blockquote>
+							<p>{{ reviews.text }}</p>
+							<small>{{ reviews.name }}</small>
+						</blockquote>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#testimonial-->

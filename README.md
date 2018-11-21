@@ -1,5 +1,5 @@
 # reviews
-Show reviews on your website
+This extension is a widget that will show reviews on your website.
 ![Bolt screenshot](https://github.com/ricardo-evalue8/reviews/blob/master/assets/screenshot1.png)
 
 Extension version

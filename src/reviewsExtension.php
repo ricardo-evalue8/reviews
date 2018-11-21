@@ -27,21 +27,30 @@ use Bolt\Asset\Widget\Widget;
 class reviewsExtension extends SimpleExtension
 {
 	protected function registerAssets()
-    {
+	{
 
-		$widget = new \Bolt\Asset\Widget\Widget();
-        $widget
+
+
+		$widget_reviews = new \Bolt\Asset\Widget\Widget();
+			$widget_reviews
             ->setZone('frontend')
-            ->setLocation('main')
+            ->setLocation('reviews')
             ->setCallback([$this, 'frontendButton'])
-        ;
-		
-        return [ $widget ];
-    }
-	
-	public function frontendButton()
-    {
+			;
 
-        return $this->renderTemplate('reviews.twig');
-    }
+			return [ $widget_reviews ];
+		}
+
+	public function frontendButton()
+	{
+		// review config array to twig
+		$config = $this->getConfig();
+		$context = [
+				'title' => [$config["title"]],
+				'description' => [$config["description"]],
+		];
+
+		//$config["title"]
+		return $this->renderTemplate('reviews.twig', $context);
+	}
 }
